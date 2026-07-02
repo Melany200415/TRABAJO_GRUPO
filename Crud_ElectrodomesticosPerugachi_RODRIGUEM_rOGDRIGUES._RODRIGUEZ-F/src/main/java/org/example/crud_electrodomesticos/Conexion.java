@@ -8,7 +8,7 @@ public class Conexion  {
 
        private static final String Url = "jdbc:mysql://localhost:3306/db_electrodomesticos";
     private static final   String user = "root";
-    private static final String password = "root";
+    private static final String password = "1234";
     public static Connection getConexion(){
             Connection conexion = null;
             try {
