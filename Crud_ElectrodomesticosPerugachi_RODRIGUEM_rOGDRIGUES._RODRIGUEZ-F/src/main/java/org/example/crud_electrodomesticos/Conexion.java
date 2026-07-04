@@ -5,14 +5,15 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexion  {
+    public static Connection getConexion() throws SQLException {
+    String url = "jdbc:mysql://hayabusa.proxy.rlwy.net:11369/railway";
+    String usuario = "root";
+    String password = "ARsllqWUauGLlllobQIsVfBKxbUjeDZO";
 
-       private static final String Url = "jdbc:mysql://localhost:3306/db_electrodomesticos";
-    private static final   String user = "root";
-    private static final String password = "1234";
-    public static Connection getConexion(){
+    Connection con = DriverManager.getConnection(url, usuario, password);
             Connection conexion = null;
             try {
-             conexion= DriverManager.getConnection(Url ,user,password);
+             conexion= DriverManager.getConnection(url ,usuario,password);
              System.out.println("Conectado la database");
 
             } catch (SQLException e) {

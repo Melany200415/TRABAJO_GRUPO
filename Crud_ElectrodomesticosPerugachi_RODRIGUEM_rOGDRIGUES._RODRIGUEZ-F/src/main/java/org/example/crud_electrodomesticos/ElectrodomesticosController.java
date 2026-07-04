@@ -183,7 +183,7 @@ public class ElectrodomesticosController {
     }
 
     @FXML
-    public void mostrar() { // <--- Vinculado al botón Leer y usado internamente
+    public void mostrar() {
         ObservableList<Electrodomesticos> electrodomesticos = FXCollections.observableArrayList();
         String sql = "SELECT * FROM electrodomesticos";
 
