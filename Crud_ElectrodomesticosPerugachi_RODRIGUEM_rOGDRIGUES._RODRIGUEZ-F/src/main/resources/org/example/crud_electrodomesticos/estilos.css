@@ -1,0 +1,15 @@
+. panelLogin{
+
+-fx-background-color: #FFEED6;
+}
+.btningresar{
+-fx-background-color: #827148;
+-fx-text-fill: white;
+}
+.btningresar:hover {
+    -fx-background-color: #A5AF79;
+    -fx-text-fill: #FFEED6;
+}
+.separador{
+-fx-background-color: #E8A07C;
+}
