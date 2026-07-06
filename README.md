@@ -1,7 +1,5 @@
 # TRABAJO_GRUPO
-
 ## Integrantes
-
 - Rodríguez Esteban
 - Rodríguez Mateo
 - Rodríguez Fernanda
@@ -10,9 +8,7 @@
 - Pillajo Alessandro
 - Quiguango Alisson
 - Tenelanda Shirley
-
 ---
-
 ## Base de Datos
 
 ### Creación de la Base de Datos
@@ -55,7 +51,20 @@ Este proyecto implementa una base de datos denominada **db_electrodomesticos**, 
 | 4 | Lavadora | 5 | 720.75 |
 | 5 | Licuadora | 20 | 65.50 |
 
+# TRABAJO_GRUPO Parte 2
+
+## Integrantes
+
+- Rodríguez Esteban
+- Rodríguez Mateo
+- Rodríguez Fernanda
+- Perugachi Melany
+- Pillajo Alessandro
+- Quiguango Alisson
+- Tenelanda Shirley
+
 ---
+
 
 **Escuela Politécnica Nacional**  
 **Trabajo Grupal**
