@@ -45,6 +45,7 @@ public class ElectrodomesticosController {
             mostrarAlerta("Validación", "El nombre solo puede contener letras.", Alert.AlertType.WARNING);
             return false;
         }
+        System.out.println("----");
         if (!nombre.getText().trim().matches("[A-ZÁÉÍÓÚÑ ]+")) {
             nombre.requestFocus();
             mostrarAlerta("Validación", "El nombre debe contener solo letras mayúsculas.", Alert.AlertType.WARNING);
@@ -78,7 +79,6 @@ public class ElectrodomesticosController {
             mostrarAlerta("Validación", "En cantidad solo debe ingresar números enteros.", Alert.AlertType.WARNING);
             return false;
         }
-
 
         try {
             double precioValor = Double.parseDouble(precio.getText());
