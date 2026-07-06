@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import java.sql.*;
-
+import javafx.scene.control.TextFormatter;
 public class ElectrodomesticosController {
 
     @FXML public TextField nombre;
@@ -40,6 +40,17 @@ public class ElectrodomesticosController {
     }
 
     public boolean validaciones() {
+        if (!nombre.getText().trim().matches("[A-Za-zÁÉÍÓÚáéíóúÑñ ]+")) {
+            nombre.requestFocus();
+            mostrarAlerta("Validación", "El nombre solo puede contener letras.", Alert.AlertType.WARNING);
+            return false;
+        }
+        if (!nombre.getText().trim().matches("[A-ZÁÉÍÓÚÑ ]+")) {
+            nombre.requestFocus();
+            mostrarAlerta("Validación", "El nombre debe contener solo letras mayúsculas.", Alert.AlertType.WARNING);
+            return false;
+        }
+
         if (nombre.getText().trim().isEmpty()) {
             nombre.requestFocus();
             mostrarAlerta("Validación", "El nombre del producto no puede estar vacío.", Alert.AlertType.WARNING);
@@ -56,6 +67,7 @@ public class ElectrodomesticosController {
             return false;
         }
 
+
         if (nombre.getText().matches(".*\\d.*")) {
             nombre.requestFocus();
             mostrarAlerta("Validación", "En el nombre del producto no debe haber números.", Alert.AlertType.WARNING);
@@ -66,6 +78,7 @@ public class ElectrodomesticosController {
             mostrarAlerta("Validación", "En cantidad solo debe ingresar números enteros.", Alert.AlertType.WARNING);
             return false;
         }
+
 
         try {
             double precioValor = Double.parseDouble(precio.getText());
