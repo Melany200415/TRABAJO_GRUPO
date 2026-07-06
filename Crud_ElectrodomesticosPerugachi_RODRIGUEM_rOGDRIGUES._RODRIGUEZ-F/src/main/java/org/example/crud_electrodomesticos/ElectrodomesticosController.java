@@ -1,23 +1,29 @@
 package org.example.crud_electrodomesticos;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.*;
+import javafx.scene.control.TextFormatter;
+import javafx.stage.Stage;
+
+import javax.swing.*;
 
 public class ElectrodomesticosController {
-
     @FXML public TextField nombre;
     @FXML public TextField stock;
     @FXML public TextField precio;
-
     @FXML public Button crear;
     @FXML public Button leer;
     @FXML public Button actualizar;
     @FXML public Button eliminar;
-
+    @FXML public Button salir;
     @FXML public TableView<Electrodomesticos> tabla;
     @FXML public TableColumn<Electrodomesticos, Integer> colid;
     @FXML public TableColumn<Electrodomesticos, String> colnombre;
@@ -37,6 +43,18 @@ public class ElectrodomesticosController {
     }
 
     public boolean validaciones() {
+        if (!nombre.getText().trim().matches("[A-Za-zÁÉÍÓÚáéíóúÑñ ]+")) {
+            nombre.requestFocus();
+            mostrarAlerta("Validación", "El nombre solo puede contener letras.", Alert.AlertType.WARNING);
+            return false;
+        }
+        System.out.println("---g-");
+        if (!nombre.getText().trim().matches("[A-ZÁÉÍÓÚÑ ]+")) {
+            nombre.requestFocus();
+            mostrarAlerta("Validación", "El nombre debe contener solo letras mayúsculas.", Alert.AlertType.WARNING);
+            return false;
+        }
+
         if (nombre.getText().trim().isEmpty()) {
             nombre.requestFocus();
             mostrarAlerta("Validación", "El nombre del producto no puede estar vacío.", Alert.AlertType.WARNING);
@@ -53,6 +71,7 @@ public class ElectrodomesticosController {
             return false;
         }
 
+
         if (nombre.getText().matches(".*\\d.*")) {
             nombre.requestFocus();
             mostrarAlerta("Validación", "En el nombre del producto no debe haber números.", Alert.AlertType.WARNING);
@@ -65,8 +84,9 @@ public class ElectrodomesticosController {
         }
 
         try {
-            double precioValor = Double.parseDouble(precio.getText());
-            if (precioValor <= 0) {
+            String textoPrecio = precio.getText().replace(",", ".");
+            double precioValor = Double.parseDouble(textoPrecio);
+            if (precioValor <= 0 ) {
                 precio.requestFocus();
                 mostrarAlerta("Validación", "El precio debe ser mayor a cero.", Alert.AlertType.WARNING);
                 return false;
@@ -76,7 +96,6 @@ public class ElectrodomesticosController {
             mostrarAlerta("Validación", "El precio debe ser un número válido.", Alert.AlertType.WARNING);
             return false;
         }
-
         return true;
     }
 
@@ -206,6 +225,18 @@ public class ElectrodomesticosController {
 
         } catch (SQLException e) {
             mostrarAlerta("Error", "No se pudo mostrar el registro: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
+
+    @FXML
+    public void salir() {
+        Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmacion.setTitle("Salir");
+        confirmacion.setHeaderText(null);
+        confirmacion.setContentText("¿Seguro que deseas salir de la aplicación?");
+
+        if (confirmacion.showAndWait().orElse(ButtonType.CANCEL) == ButtonType.OK) {
+            Platform.exit();
         }
     }
 
