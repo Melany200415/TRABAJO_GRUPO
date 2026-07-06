@@ -45,7 +45,7 @@ public class ElectrodomesticosController {
             mostrarAlerta("Validación", "El nombre solo puede contener letras.", Alert.AlertType.WARNING);
             return false;
         }
-        System.out.println("----");
+        System.out.println("---g-");
         if (!nombre.getText().trim().matches("[A-ZÁÉÍÓÚÑ ]+")) {
             nombre.requestFocus();
             mostrarAlerta("Validación", "El nombre debe contener solo letras mayúsculas.", Alert.AlertType.WARNING);
