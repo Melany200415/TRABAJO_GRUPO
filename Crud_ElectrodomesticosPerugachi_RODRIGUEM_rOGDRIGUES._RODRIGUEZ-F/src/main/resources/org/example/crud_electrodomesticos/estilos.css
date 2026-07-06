@@ -1,0 +1,55 @@
+/* Paleta aplicada:
+   Fondo: #FFEED6
+   Botones/Acentos: #A5AF79, #827148, #E8A07C
+*/
+
+.root {
+    -fx-background-color: #FFEED6;
+}
+
+/* Título principal */
+.label {
+    -fx-text-fill: #827148;
+    -fx-font-weight: bold;
+}
+
+/* Campos de texto */
+.text-field {
+    -fx-border-color: #A5AF79;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+/* Botones generales */
+.button {
+    -fx-background-color: #A5AF79;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #827148;
+}
+
+/* Colores específicos para botones */
+#crear { -fx-background-color: #A5AF79; }
+#leer { -fx-background-color: #827148; }
+#actualizar { -fx-background-color: #E8A07C; }
+#eliminar { -fx-background-color: #E8A07C; }
+#salir { -fx-background-color: #827148; }
+
+/* Estilo de la Tabla */
+.table-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #A5AF79;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #827148;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+}
