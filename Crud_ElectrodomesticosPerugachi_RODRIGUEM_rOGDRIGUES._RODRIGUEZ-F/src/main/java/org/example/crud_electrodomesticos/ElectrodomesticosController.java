@@ -67,6 +67,7 @@ public class ElectrodomesticosController {
             return false;
         }
 
+
         if (nombre.getText().matches(".*\\d.*")) {
             nombre.requestFocus();
             mostrarAlerta("Validación", "En el nombre del producto no debe haber números.", Alert.AlertType.WARNING);
