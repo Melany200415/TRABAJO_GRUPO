@@ -81,8 +81,9 @@ public class ElectrodomesticosController {
         }
 
         try {
-            double precioValor = Double.parseDouble(precio.getText());
-            if (precioValor <= 0) {
+            String textoPrecio = precio.getText().replace(",", ".");
+            double precioValor = Double.parseDouble(textoPrecio);
+            if (precioValor <= 0 ) {
                 precio.requestFocus();
                 mostrarAlerta("Validación", "El precio debe ser mayor a cero.", Alert.AlertType.WARNING);
                 return false;
@@ -92,7 +93,6 @@ public class ElectrodomesticosController {
             mostrarAlerta("Validación", "El precio debe ser un número válido.", Alert.AlertType.WARNING);
             return false;
         }
-
         return true;
     }
 
