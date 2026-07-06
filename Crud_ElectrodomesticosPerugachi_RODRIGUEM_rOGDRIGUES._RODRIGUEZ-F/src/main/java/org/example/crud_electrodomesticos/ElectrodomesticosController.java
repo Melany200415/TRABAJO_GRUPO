@@ -79,6 +79,7 @@ public class ElectrodomesticosController {
             return false;
         }
 
+
         try {
             double precioValor = Double.parseDouble(precio.getText());
             if (precioValor <= 0) {
