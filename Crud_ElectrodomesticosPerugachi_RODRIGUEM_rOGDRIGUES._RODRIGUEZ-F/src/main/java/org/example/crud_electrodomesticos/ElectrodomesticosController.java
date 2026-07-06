@@ -40,9 +40,6 @@ public class ElectrodomesticosController {
                 precio.setText(String.valueOf(newValue.getPrecio()));
             }
         });
-
-        // Carga inicial de datos
-        mostrar();
     }
 
     public boolean validaciones() {
