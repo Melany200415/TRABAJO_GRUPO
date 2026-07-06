@@ -1,7 +1,8 @@
 module org.example.crud_electrodomesticos {
     requires javafx.controls;
     requires javafx.fxml;
-    requires java.sql; // Obligatorio para conectar a MySQL / JDBC
+    requires java.sql;
+    requires java.desktop; // Obligatorio para conectar a MySQL / JDBC
 
 
     // Permite a JavaFX mapear los campos FXML con tus clases controladoras

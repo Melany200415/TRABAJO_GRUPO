@@ -1,23 +1,29 @@
 package org.example.crud_electrodomesticos;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.*;
 import javafx.scene.control.TextFormatter;
-public class ElectrodomesticosController {
+import javafx.stage.Stage;
 
+import javax.swing.*;
+
+public class ElectrodomesticosController {
     @FXML public TextField nombre;
     @FXML public TextField stock;
     @FXML public TextField precio;
-
     @FXML public Button crear;
     @FXML public Button leer;
     @FXML public Button actualizar;
     @FXML public Button eliminar;
-
+    @FXML public Button salir;
     @FXML public TableView<Electrodomesticos> tabla;
     @FXML public TableColumn<Electrodomesticos, Integer> colid;
     @FXML public TableColumn<Electrodomesticos, String> colnombre;
@@ -222,6 +228,18 @@ public class ElectrodomesticosController {
 
         } catch (SQLException e) {
             mostrarAlerta("Error", "No se pudo mostrar el registro: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
+
+    @FXML
+    public void salir() {
+        Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmacion.setTitle("Salir");
+        confirmacion.setHeaderText(null);
+        confirmacion.setContentText("¿Seguro que deseas salir de la aplicación?");
+
+        if (confirmacion.showAndWait().orElse(ButtonType.CANCEL) == ButtonType.OK) {
+            Platform.exit();
         }
     }
 
